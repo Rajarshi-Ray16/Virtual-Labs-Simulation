@@ -1,0 +1,47 @@
+[
+    {"question":"1.  D in D flip flop stands for ____",
+    "answers":{
+                "a":"Data",
+                "b":"Delay",
+                "c":"Data and delay",
+                "d":"None of the above"
+              },
+    "correctAnswer":"a"},
+                
+    {"question":"2. How to implement a D flip flop using SR flip flop?",
+    "answers":{
+                "a":"S=D_bar, R=D",
+                "b":"S=D, R=D_bar",
+                "c":"S=0, R=D_bar",
+                "d":"S=0, R=D"
+              },
+    "correctAnswer":"b"},
+                
+        {"question":"3. How to implement a D flip flop using SR flip flop?",
+    "answers":{
+                "a":"J=0, K=D",
+                "b":"J=K, J=D",
+                "c":"J=1, K=D",
+                "d":"J=D, K=D_bar"
+              },
+    "correctAnswer":"d"},
+                
+    {"question":" 4. In positive edge triggered D flip flop if D=1 then at negative edge of the clock, the output will be ____",
+    "answers":{
+                "a":"1",
+                "b":"0",
+                "c":"Previous value",
+                "d":"Z"
+              },
+    "correctAnswer":"c"},
+                
+    {"question":"5. The equation for D flip flop is ____",
+        "answers":{
+                "a":"Q_plus = D",
+                "b":"Q_plus = D_bar",
+                "c":"Q_plus = DQ",
+                "d":"Q_plus = D + Q"
+              },
+    "correctAnswer":"a"}
+                
+    ]
