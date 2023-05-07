@@ -1,0 +1,46 @@
+[
+    {"question":"1.How many pass transistors are required to build 2 X 1 mux circuit?",
+    "answers":{
+                "a":"2 ",
+                "b":"4 ",
+                "c":"0 ",
+                "d":"1 "
+              },
+    "correctAnswer":"a"},
+                
+    {"question":"2. For negative edge pass tansistor the clock should be connected to  ?",
+    "answers":{
+                "a":"Drain of pmos",
+                "b":"Source of nmos",
+                "c":"Gate of nmos",
+                "d":"Gate of pmos"
+              },
+    "correctAnswer":"d"}, 
+                
+    {"question":"3. Control logic in the mux circuit is given by  ",
+    "answers":{
+                "a":"Clock",
+                "b":"ClockComplement",
+                "c":"DataLine1",
+                "d":"DataLine2"
+              },
+    "correctAnswer":"b"},
+                
+    {"question":"4. Which are following statements are true ?",
+    "answers":{
+                "a":"Latches are used as temporary buffers  ",
+                "b":"D latches  are also used in finite state machines.",
+                "c":"D-flipflop is a level Triggering device ",
+                "d":"D-latch is a edge Triggering device "
+              },
+    "correctAnswer":"a"},           
+                
+    {"question":"5.In positive level d flipflop the output changes for ",
+    "answers":{
+                "a":"Rising edge of clock ",
+                "b":"Rising edge of input  ",
+                "c":"Falling edge of clock ",
+                "d":"None"
+              },
+    "correctAnswer":"a"}            
+    ]
