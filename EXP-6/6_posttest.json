@@ -1,0 +1,46 @@
+[
+    {"question":"How many transsistors are required for nor based sr latch usin cmos",
+    "answers":{
+                "a":"15 ",
+                "b":"10 ",
+                "c":"16 ",
+                "d":"12  "
+              },
+    "correctAnswer":"d"},
+                
+    {"question":"2.D latch is prefered over d flip flop because  ",
+    "answers":{
+                "a":"Delay is more in d flipflop than in d latch  ",
+                "b":"Power consumption is more in d flipflop than in d latch ",
+                "c":"both a and b ",
+                "d":"none "
+              },
+    "correctAnswer":"c"}, 
+                
+    {"question":"3.Which of the following statements regarding latch are true ",
+    "answers":{
+                "a":"CMOS circuits are not used generally because of high latchup effects",
+                "b":"Doping level should be decreased to reduce the latch-up effect. ",
+                "c":"Both a and d ",
+                "d":"Sudden transient power decreases the latch-up effect "
+              },
+    "correctAnswer":"a"},
+                
+    {"question":"4.FPGA contains ",
+    "answers":{
+                "a":"Edge triggered Latches ",
+                "b":"Level triggered flipflops  ",
+                "c":"Edge triggered flipflops ",
+                "d":"Level triggered Latches  "
+              },
+    "correctAnswer":"d"},           
+                
+    {"question":"5.Advantage of level ",
+    "answers":{
+                "a":"It reduces speed of circuit",
+                "b":"Determines how input power is structured  ",
+                "c":"Both a and b ",
+                "d":"None"
+              },
+    "correctAnswer":"a"}            
+    ]
