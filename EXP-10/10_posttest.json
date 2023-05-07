@@ -1,0 +1,46 @@
+[
+    {"question":"Which statements are true regarding lambda rules ?",
+    "answers":{
+                "a":"Proportional scaling hence better to understand the circuit ",
+                "b":"Introduce a layout constraint ",
+                "c":"both a and b ",
+                "d":"none "
+              },
+    "correctAnswer":"c"},
+                
+    {"question":"The ratio of minimum allowable width for metal1 and metal2 is ",
+    "answers":{
+                "a":"2/3",
+                "b":"3/4",
+                "c":"4/4",
+                "d":"4/5"
+              },
+    "correctAnswer":"c"}, 
+                
+    {"question":"3.Given a circuit as having polysilicon having width as 1nm and metal with width 4nm and both of them seperated by 7nm ",
+    "answers":{
+                "a":"Drc rules are satisfied  ",
+                "b":"Drc rules fail becuase spacing is too small ",
+                "c":"Drc rules fail because metal width is too high ",
+                "d":"Drc rules fail becaue polysilicon width is too small  "
+              },
+    "correctAnswer":"d"},
+                
+    {"question":"4.Which of the following statements are true ",
+    "answers":{
+                "a":"Micron rules give scalable design ",
+                "b":"Micron rules occupy less area ",
+                "c":"Thickness rules are also considered as part of layout design ",
+                "d":"Layout rules give absolute design "
+              },
+    "correctAnswer":"b"},           
+                
+    {"question":"5.Minimum polycontact to polyedgespacing is ",
+    "answers":{
+                "a":"1L ",
+                "b":"2L ",
+                "c":"3L ",
+                "d":"4L "
+              },
+    "correctAnswer":"a"}            
+    ]

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual labs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.6/js/jsplumb.min.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+
+    <div class="columns mt-2 is-centered is-flex">
+        <div class="column is-6-desktop is-10-tablet is-10-mobile">
+            <div class="v-collapsible-instruction-container">
+                <div class="v-collapsible is-size-5">Instructions</div>
+                <div class="v-content">
+                    <ul style="list-style: disc;">
+                        <li>Click or tap on an element in the tool bar to select that colored component</li>
+                        <li>Click or tap once at the starting point to start drawing the rectangle.</li>
+                        <li>Click or tap again at the point where you want to end the rectangle</li>
+                        <li>If you did anything wrong click on reset button</li>
+                        <li>Click check DRC to see the result of the simulation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns is-variable is-1 is-centered is-flex is-flex-wrap-wrap">
+        <div id="start" class="column is-2-desktop is-2-tablet is-3-mobile center-content">
+            <button class="v-button" onclick="checkdrc()">Check DRC</button>
+        </div>
+        <div id="restart" class="column is-2-desktop is-2-tablet is-3-mobile center-content">
+            <button class="v-button" onclick="refresh()">Reset</button>
+        </div>
+    </div>
+
+    <div class="columns is-variable is-1 is-centered is-flex is-flex-wrap-wrap">
+        <div class="column is-2-desktop is-3-tablet is-2-mobile center-content">
+            <div class="v-datalist-container">
+                <div class="v-datalist-title">
+                    ToolBar
+                </div>
+                <div class="v-datalist-row toolbar-item-list">
+                    <div class="toolbar-component" onclick="changeColour('grey')">
+                        <div class="each-toolbar-component has-text-centered">
+                            <div class="color-flex-box">
+                                <div style="background-color: grey;" class="color-box"></div>
+                                <div class="color-text-box">Metal</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="changeColour('blue')">
+                        <div class="each-toolbar-component has-text-centered">
+                            <div class="color-flex-box">
+                                <div style="background-color: blue;" class="color-box"></div>
+                                <div class="color-text-box">Metal 2</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="changeColour('red')">
+                        <div class="each-toolbar-component has-text-centered">
+                            <div class="color-flex-box">
+                                <div style="background-color: red;" class="color-box"></div>
+                                <div class="color-text-box">Polysilicon</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="changeColour('green')">
+                        <div class="each-toolbar-component has-text-centered">
+                            <div class="color-flex-box">
+                                <div style="background-color: green;" class="color-box"></div>
+                                <div class="color-text-box">Active</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="changeColour('black')">
+                        <div class="each-toolbar-component has-text-centered">
+                            <div class="color-flex-box">
+                                <div style="background-color: black;" class="color-box"></div>
+                                <div class="color-text-box">Contact</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="changeColour('#aaf0d1')">
+                        <div class="each-toolbar-component has-text-centered">
+                            <div class="color-flex-box">
+                                <div style="background-color: #aaf0d1;" class="color-box"></div>
+                                <div class="color-text-box">N well</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="changeColour('#bfafb2')">
+                        <div class="each-toolbar-component has-text-centered">
+                            <div class="color-flex-box">
+                                <div style="background-color: #bfafb2;" class="color-box"></div>
+                                <div class="color-text-box">N select</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="changeColour('#b2f302')">
+                        <div class="each-toolbar-component has-text-centered">
+                            <div class="color-flex-box">
+                                <div style="background-color: #b2f302;" class="color-box"></div>
+                                <div class="color-text-box">P select</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="changeColour('#a63a79')">
+                        <div class="each-toolbar-component has-text-centered">
+                            <div class="color-flex-box">
+                                <div style="background-color: #a63a79;" class="color-box"></div>
+                                <div class="color-text-box">Via</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-7-desktop is-9-tablet is-10-mobile center-content">
+            <div class="is-flex is-flex-wrap-wrap center-content simulation-container" id="canvas">
+            </div>
+        </div>
+
+        <div class="column is-3-desktop is-8-tablet is-8-mobile center-content">
+            <div class="v-datalist-container">
+                <div class="v-datalist-title">
+                    Observation
+                </div>
+                <div class="v-datalist-row" id="obs-table">
+                    <div id="result" class="text-danger">
+
+                    </div>
+                </div>
+                <div id="output-box">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+</body>
+
+</html>
