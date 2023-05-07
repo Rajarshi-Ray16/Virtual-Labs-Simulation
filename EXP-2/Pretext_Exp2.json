@@ -1,0 +1,47 @@
+[
+    {"question":"1. Which of the following gates give 1 as the otput only when its inputs are 0 only?",
+    "answers":{
+                "a":"NAND",
+                "b":"XOR",
+                "c":"XNOR",
+                "d":"NOR"
+              },
+    "correctAnswer":"d"},
+                
+    {"question":"2. Which of the following logic gates are functionally complete?",
+    "answers":{
+                "a":"OR",
+                "b":"XOR",
+                "c":"NAND",
+                "d":"AND"
+              },
+    "correctAnswer":"c"},
+                
+        {"question":"3. An inverter can be realized as? <img src='images/option_exp2'>",
+    "answers":{
+                "a":"i, iii",
+                "b":"ii, iv",
+                "c":"All",
+                "d":"iii, iv"
+              },
+    "correctAnswer":"c"},
+                
+    {"question":" 4. In CMOS NAND gate the NMOS are in ",
+    "answers":{
+                "a":"Series",
+                "b":"Parallel",
+                "c":"Random",
+                "d":"Series or Parallel"
+              },
+    "correctAnswer":"a"},           
+    
+    {"question":"5. An inverter can be realized as?",
+    "answers":{
+                "a":"High",
+                "b":"Low",
+                "c":"Moderate",
+                "d":"Cannot be predicted"
+              },
+    "correctAnswer":"a"}       
+                
+    ]
