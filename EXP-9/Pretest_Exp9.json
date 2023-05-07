@@ -1,0 +1,54 @@
+[
+    {"question":"1.  Verilog is a subset of ___",
+    "answers":{
+                "a":"System VHDL",
+                "b":"VDHL",
+                "c":"System Verilog",
+                "d":"Both A and C"
+              },
+    "correctAnswer":"c"},
+                
+    {"question":"2. Transistor level descriptions can be provided in Verilog",
+    "answers":{
+                "a":"True",
+                "b":"False"
+              },
+    "correctAnswer":"a"},
+                
+        {"question":"3. #time is the operator used for providing delay in Verilog. How is it realized physically?",
+    "answers":{
+                "a":"Inverter",
+                "b":"Buffer",
+                "c":"Flipflop",
+                "d":"None of the above"
+              },
+    "correctAnswer":"b"},
+                
+    {"question":" 4. Verilog is a  ____",
+    "answers":{
+                "a":"Behavioral language",
+                "b":"Structural language",
+                "c":"Both",
+                "d":"None"
+              },
+    "correctAnswer":"c"},
+                
+    {"question":"5. The highest and lowest level of abstraction provided in Verilog are ____",
+        "answers":{
+                "a":"Dataflow and gate level",
+                "b":"Behavioral and gate level",
+                "c":"Behavioral and switch level",
+                "d":"Dataflow and switch level"
+              },
+    "correctAnswer":"c"},
+
+    {"question":"6. Verilog supports ____",
+        "answers":{
+                "a":"4 values and 8 strengths",
+                "b":"8 values and 4 strengths",
+                "c":"2 values and 4 strengths",
+                "d":"2 values and 8 strengths"
+              },
+    "correctAnswer":"a"}
+                
+    ]
