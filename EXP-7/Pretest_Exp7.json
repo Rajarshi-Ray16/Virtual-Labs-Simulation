@@ -1,0 +1,38 @@
+[
+    {"question":"1.  For storing DC operating point the command used is ____",
+    "answers":{
+                "a":".TRAN",
+                "b":".OPT",
+                "c":".OP",
+                "d":"None of the above"
+              },
+    "correctAnswer":"c"},
+                
+    {"question":"2. Analysis done to study the effect of time is called ____",
+    "answers":{
+                "a":"AC Analysis",
+                "b":"DC Analysis",
+                "c":"Transient Analysis",
+                "d":"Noise Analysis"
+              },
+    "correctAnswer":"c"},
+                
+        {"question":"3. In DC analysis, ___",
+    "answers":{
+                "a":"Inductor is replaced with short circuit, capacitor is replaced with open circuit",
+                "b":"Inductor is replaced with open circuit, capacitor is replaced with open circuit",
+                "c":"Inductor is replaced with open circuit, capacitor is replaced with short circuit",
+                "d":"Inductor is replaced with short circuit, capacitor is replaced with short circuit"
+              },
+    "correctAnswer":"a"},
+                
+    {"question":" 4. Small signal gain and impedance calculation is called ____",
+    "answers":{
+                "a":"Pole Zero Analysis",
+                "b":"Transfer Function Analysis",
+                "c":"AC Analysis",
+                "d":"Transient Analysis"
+              },
+    "correctAnswer":"b"}
+                
+    ]

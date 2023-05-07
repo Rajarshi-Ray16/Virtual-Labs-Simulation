@@ -1,0 +1,44 @@
+.v-datalist-container {
+    min-height: 31.25rem;
+    height: 75vh;
+    width: 100%;
+    /* margin-left: 0.5rem; */
+    margin-right: 0.5rem;
+}
+
+.toolbar-item-list {
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    gap: 0.625rem;
+    padding: 0.625rem;
+}
+
+.text-danger {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.text-success {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+}
+
+#spice-code {
+    min-height: 31.25rem;
+    height: 75vh;
+    font-family: monospace;
+    overflow: auto;
+    background-color: rgb(220, 220, 220);
+}
+
+#obs-table {
+    overflow: auto;
+}
