@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual labs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.6/js/jsplumb.min.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div class="columns mt-2 is-variable is-1 is-centered is-flex is-flex-wrap-wrap">
+        <div class="v-tabs">
+            <ul>
+                <li class="is-active">
+                    <a>
+                        <span>Complementary CMOS</span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span>Pseudo NMOS</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="columns is-centered is-flex">
+        <div class="column is-6-desktop is-10-tablet is-10-mobile">
+            <div class="v-collapsible-instruction-container">
+                <div class="v-collapsible is-size-5">Instructions</div>
+                <div class="v-content">
+                    <ul style="list-style: disc;">
+                        <li>Click or tap on an element in the tool bar to place it in the workspace</li>
+                        <li>Double click on a wire to delete it</li>
+                        <li>Double click on input element to change it's value</li>
+                        <li>If you did anything wrong click on reset button</li>
+                        <li>Select the appropriate tab and click on validate after completion of circuit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns is-variable is-1 is-centered is-flex is-flex-wrap-wrap">
+        <div id="start" class="column is-2-desktop is-2-tablet is-3-mobile center-content">
+            <button class="v-button" id="play-pause" onclick="playButton()">&#9654; Play</button>
+        </div>
+        <!-- <div id="pause" class="column is-2-desktop is-2-tablet is-3-mobile center-content">
+            <button class="v-button" id="play-pause" onclick="stopButton()">&#9208; Pause</button>
+        </div> -->
+        <div id="restart" class="column is-2-desktop is-2-tablet is-3-mobile center-content">
+            <button class="v-button" onclick="location.reload()">Reset</button>
+        </div>
+    </div>
+
+    <div class="columns is-variable is-1 is-centered is-flex is-flex-wrap-wrap">
+        <div id="speed-slider-div" class="column is-4-desktop is-4-tablet is-6-mobile center-content">
+            <input type="range" min="1" max="10" value="3" class="v-slider-full" id="speed-slider">
+        </div>
+    </div>
+
+    <div class="columns is-variable is-1 is-centered is-flex is-flex-wrap-wrap">
+        <div class="column is-2-desktop is-3-tablet is-2-mobile center-content">
+            <div class="v-datalist-container">
+                <div class="v-datalist-title">
+                    ToolBar
+                </div>
+                <div class="v-datalist-row toolbar-item-list" style="pointer-events: none;">
+                    <div class="toolbar-component" onclick="compPmos()">
+                        <div class="each-toolbar-component has-text-centered">
+                            <svg class="svg-component" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                                <g>
+                                    <path d="M 29.78 77 L 29.78 27" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                    <path d="M 35.33 77 L 35.33 27" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                    <path d="M 35.33 39.5 L 52 39.5 L 52 2" fill="none" stroke="green"
+                                        stroke-width="2.5" stroke-miterlimit="0.01" />
+                                    <path d="M 52 102 L 52 64.5 L 35.33 64.5" fill="none" stroke="green"
+                                        stroke-width="2.5" stroke-miterlimit="0.01" />
+                                    <path d="M 2 52 L 18.67 52" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                    <ellipse cx="24.02" cy="51.11" rx="5.357142857142858" ry="5.357142857142858"
+                                        fill="none" stroke="green" stroke-width="2.5" />
+                                </g>
+                            </svg>
+                            PMOS
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="compNmos()">
+                        <div class="each-toolbar-component has-text-centered">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="svg-component" height="100" width="100"
+                                viewBox="0 0 100 100">
+                                <g class="draggable-group">
+                                    <path d="M 27.71 77 L 27.71 27" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                    <path d="M 36.29 77 L 36.29 27" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                    <path d="M 36.29 39.5 L 62 39.5 L 62 2" fill="none" stroke="green"
+                                        stroke-width="2.5" stroke-miterlimit="0.01" />
+                                    <path d="M 62 102 L 62 64.5 L 36.29 64.5" fill="none" stroke="green"
+                                        stroke-width="2.5" stroke-miterlimit="0.011" />
+                                    <path d="M 2 52 L 27.71 52" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01">
+                                </g>
+                            </svg>
+                            NMOS
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="compVdd()">
+                        <div class="each-toolbar-component has-text-centered">
+                            <svg class="svg-component" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                                <g>
+                                    <path d="M 21 41 L 21 1 L 1 1 L 41 1" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                </g>
+                            </svg>
+                            VDD
+                        </div>
+                    </div>
+                    <div class="toolbar-component" onclick="compGround()">
+                        <div class="each-toolbar-component has-text-centered">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="svg-component" height="100" width="100"
+                                viewBox="0 0 100 100">
+                                <g>
+                                    <path d="M 1 31 L 61 31 L 31 31 L 31 1" fill="none" stroke="green"
+                                        stroke-width="2.5" stroke-miterlimit="0.01" />
+                                    <path d="M 11 41 L 51 41" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                    <path d="M 21 51 L 41 51" fill="none" stroke="green" stroke-width="2.5"
+                                        stroke-miterlimit="0.01" />
+                                </g>
+                            </svg>
+                            Ground
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-7-desktop is-9-tablet is-10-mobile center-content">
+            <div class="is-flex is-flex-wrap-wrap center-content simulation-container" id="diagram">
+            </div>
+        </div>
+
+        <div class="column is-3-desktop is-8-tablet is-8-mobile center-content">
+            <div class="v-datalist-container">
+                <div class="v-datalist-title">
+                    Observation
+                </div>
+                <div class="v-datalist-row" id="obs-table">
+                    
+                    <div id="result"></div>
+                </div>
+                <div id="output-box">
+
+                </div>
+                <div class="v-datalist-row text-danger" id="error-container" style="display:none;">
+                    Required no.of components of this type are already present in the workspace
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //Creating js map to store connections
+        const connectionMap = new Map();
+        // these arrays are used to store various components
+        const listPmos = [];
+        const listNmos = [];
+        const listInput = [];
+        const listOutput = [];
+        const listGround = [];
+        const listVdd = [];
+        const listInverter = [];
+        // Disable right click 
+        const container = document.getElementById("diagram");
+        container.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
+
+        let pmosNand = 0;
+        let nmosNand = 0;
+        // Tab selection
+        let selectedTab = 0
+        const tabs = document.querySelectorAll('.v-tabs li');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(item => item.classList.remove('is-active'));
+                tab.classList.add('is-active');
+
+                let parent = tab.parentNode;
+                selectedTab = Array.prototype.indexOf.call(parent.children, tab);
+            })
+        })
+
+    </script>
+
+    <script src="js/components-demo.js"></script>
+    <script src="js/integrate_demo.js"></script>
+
+    <!-- <button onclick="changeoutput()">Input</button> -->
+
+    <script>
+        function returnSpeed() {
+            return document.getElementById("speed-slider").value
+        }
+        function delay(delayInms) {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve(2);
+                }, delayInms);
+            });
+        }
+        let stop = 0;
+        let current = 0;
+        //let y = timeout(0);
+        function stopButton() {
+            stop = 1;
+            document.getElementById("play-pause").innerHTML = "&#9654; Play"
+            document.getElementById("play-pause").onclick = playButton()
+        }
+        function playButton() {
+            stop = 0;
+            
+            document.getElementById("play-pause").innerHTML = "&#9208; Pause"
+            document.getElementById("play-pause").onclick = stopButton()
+            
+            timeout(current);
+            if (current >= 11) {
+                current = 0;
+            }
+        }
+        async function timeout(x) {
+
+            // let delayres2 = await delay(1000/returnSpeed();
+            
+            if (stop === 0 && x <= 0) {
+                compPmos()
+                document.getElementById('output-box').innerHTML += "PMOS is placed <br> "
+                await delay(1000/returnSpeed());
+                current++;
+            }
+            if (stop === 0 && x <= 1) {
+                compNmos();
+                document.getElementById('output-box').innerHTML += "NMOS is placed <br> "
+                await delay(1000/returnSpeed());
+                current++;
+            }
+            if (stop === 0 && x <= 2) {
+
+                compInput0();
+                document.getElementById('output-box').innerHTML += "Input is placed <br> "
+                await delay(1000/returnSpeed());
+                current++;
+            }
+            if (stop === 0 && x <= 3) {
+                compOutput();
+                document.getElementById('output-box').innerHTML += "Output is placed <br> "
+                await delay(1000/returnSpeed());
+                current++;
+            }
+            if (stop === 0 && x <= 4) {
+                compGround();
+                document.getElementById('output-box').innerHTML += " Ground is placed <br> "
+                await delay(1000/returnSpeed());
+                current++;
+            }
+            if (stop === 0 && x <= 5) {
+                compVdd();
+                document.getElementById('output-box').innerHTML += "VDD is placed <br> "
+                await delay(1000/returnSpeed());
+                current++;
+            }
+            if (stop === 0 && x <= 6) {
+                jsplumbInstance.connect({ uuids: ["pmosBottom", "output"] });
+                await delay(1000/returnSpeed());
+                current++;
+            }
+            if (stop === 0 && x <= 7) {
+                jsplumbInstance.connect({ uuids: ["nmosTop", "output"] });
+                await delay(1000/returnSpeed());
+                current++;
+            }
+            if (stop === 0 && x <= 8) {
+                jsplumbInstance.connect({ uuids: ["input", "nmosLeft"] });
+                await delay(1000/returnSpeed());
+                current++;
+            }
+            if (stop === 0 && x <= 9) {
+                jsplumbInstance.connect({ uuids: ["vdd", "pmosTop"] });
+                await delay(1000/returnSpeed());
+                current++;
+            }
+            if (stop === 0 && x <= 10) {
+                jsplumbInstance.connect({ uuids: ["ground", "nmosBottom"] });
+                await delay(1000/returnSpeed());
+                current++;
+            }
+            if (stop === 0 && x <= 11) {
+                jsplumbInstance.connect({ uuids: ["input", "pmosLeft"] });
+                await delay(1000/returnSpeed());
+                current++;
+            }
+
+            
+
+
+
+
+            /*jsplumbInstance.connect({ uuids: ["pmosbottom", "output"] });
+            let delayres10 = await delay(1000/returnSpeed();
+            jsplumbInstance.connect({ uuids: ["nmostop", "output"] });
+            let delayres20 = await delay(1000/returnSpeed();
+            jsplumbInstance.connect({ uuids: ["input", "nmosleft"] });
+            let delayres30 = await delay(1000/returnSpeed();
+            jsplumbInstance.connect({ uuids: ["vdd", "pmostop"] });
+            let delayres40= await delay(1000/returnSpeed();
+            jsplumbInstance.connect({ uuids: ["ground", "nmosbottom"] });
+            let delayres50 = await delay(1000/returnSpeed();
+            jsplumbInstance.connect({ uuids: ["input", "pmosleft"] });
+            let delayres200 = await delay(1000/returnSpeed();
+            alert("Demo completed");*/
+            return x;
+
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+</body>
+
+</html>

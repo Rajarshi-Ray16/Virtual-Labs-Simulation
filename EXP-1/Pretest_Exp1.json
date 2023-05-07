@@ -1,0 +1,56 @@
+[
+    {"question":"1. In inverter circuits what would be a preferred load? ",
+    "answers":{
+                "a":"Resistor",
+                "b":"MOSFET",
+                "c":"Both",
+                "d":"None of the above"
+              },
+    "correctAnswer":"b"},
+                
+    {"question":"2. Which of the following do we prefer for a pull down device in an inverter circuit?",
+    "answers":{
+                "a":"NMOS",
+                "b":"PMOS",
+                "c":"Resistor",
+                "d":"Both a and c"
+              },
+    "correctAnswer":"a"},
+                
+        {"question":"3. How many regions of operation does a CMOS inverter has?>",
+    "answers":{
+                "a":"3",
+                "b":"4",
+                "c":"5",
+                "d":"2"
+              },
+    "correctAnswer":"c"},
+                
+    {"question":" 4. The output and input impedance of a CMOS inverter are>",
+    "answers":{
+                "a":"High, Low",
+                "b":"High, High",
+                "c":"Low, High",
+                "d":"Low, Low"
+              },
+    "correctAnswer":"c"},           
+    
+    {"question":"5. For an ideal CMOS inverter switching threshold voltage is equal to",
+    "answers":{
+                "a":"0",
+                "b":"VDD",
+                "c":"VDD/2",
+                "d":"VDD-VIN/2"
+              },
+    "correctAnswer":"c"},
+                
+    {"question":"6. Which of the following are desired characteristics in a CMOS inverter <img src='images/option_exp1.jpg>",
+    "answers":{
+                "a":"i, iii, iv",
+                "b":"i, iv, v",
+                "c":"i, ii, iv, v",
+                "d":"All"
+              },
+    "correctAnswer":"c"}       
+                
+    ]
